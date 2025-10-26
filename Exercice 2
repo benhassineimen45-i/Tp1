@@ -1,0 +1,119 @@
+package tp2java;
+
+public class cercle {
+    final double pi = 3.14;
+    double r;
+
+    public cercle(double a) {
+        this.r = a;
+    }
+
+    public double calculerSurface() {
+        return 2 * pi * r;
+    }
+
+    public cercle() {
+    }
+}
+package tp2java;
+
+public class rectangle {
+    public double longueur;
+    public double largeur;
+
+    public rectangle(double l, double la) {
+        this.longueur = l;
+        this.largeur = la;
+    }
+
+    public double calculerSurface() {
+        return longueur * largeur;
+    }
+
+    public rectangle() {
+    }
+}
+package tp2java;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("donner le rayon");
+        double x = input.nextDouble();
+        cercle c1 = new cercle();
+        cercle c2 = new cercle(x);
+
+        System.out.println(c1.r);
+        System.out.println(c2.r);
+        System.out.println(c2.calculerSurface());
+
+        System.out.println("donner le rectangle");
+        double a = input.nextDouble();
+        double b = input.nextDouble();
+
+        rectangle r1 = new rectangle(a, b);
+        rectangle r2 = new rectangle(a, b);
+
+        System.out.println(r1.longueur);
+        System.out.println(r2.largeur);
+        System.out.println(r2.calculerSurface());
+        System.out.println(r1.calculerSurface());
+    }
+}
+import java.util.Scanner;
+
+public class ex {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("entrer le premier nombre");
+        double a = input.nextDouble();
+
+        System.out.println("entrer l'operateur (+, -, *, /)");
+        char op = input.next().charAt(0);
+
+        System.out.println("entrer le deuxieme nombre");
+        double b = input.nextDouble();
+
+        double resultat = 0;
+
+        if (op == '+') {
+            resultat = a + b;
+        } else if (op == '-') {
+            resultat = a - b;
+        } else if (op == '*') {
+            resultat = a * b;
+        } else if (op == '/') {
+            if (b != 0) {
+                resultat = a / b;
+            } else {
+                System.out.println("erreur division par zero");
+                return;
+            }
+        } else {
+            System.out.println("operateur invalide");
+            return;
+        }
+
+        System.out.println("resultat = " + resultat);
+    }
+}
+package ex3;
+import java.util.Scanner;
+
+public class calendrier {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("saisir une annee");
+        int a = input.nextInt();
+
+        if ((a % 4 == 0 && a % 100 != 0) || (a % 400 == 0)) {
+            System.out.println(a + " est une annee bissextile");
+        } else {
+            System.out.println(a + " n'est pas une annee bissextile");
+        }
+    }
+}
